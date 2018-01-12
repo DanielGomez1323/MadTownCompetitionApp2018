@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.pollo.madtowncompetitionapp2018.AppMenu">
+
+        <EditText
+            android:layout_width="500dp"
+            android:layout_height="50dp"
+            android:id="@+id/searchEditText"
+            android:hint="Ex. 1323"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:id="@+id/searchButton"
+            android:drawableLeft="@android:drawable/ic_menu_search"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="95dp"
+            android:layout_height="50dp"
+            android:id="@+id/scoutButton"
+            android:text="Scout"
+            android:textSize="10sp"
+            android:drawableStart="@android:drawable/ic_menu_agenda"
+            android:layout_below="@+id/searchButton"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="95dp"
+            android:layout_height="50dp"
+            android:id="@+id/uploadButton"
+            android:text="Upload"
+            android:textSize="10sp"
+            android:drawableStart="@android:drawable/ic_menu_upload"
+            android:layout_below="@+id/scoutButton"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="95dp"
+            android:layout_height="50dp"
+            android:id="@+id/teamsButton"
+            android:text="Teams"
+            android:textSize="10sp"
+            android:layout_below="@+id/uploadButton"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="95dp"
+            android:layout_height="50dp"
+            android:id="@+id/addPhotoButton"
+            android:text="Add Photo"
+            android:textSize="10sp"
+            android:drawableStart="@android:drawable/ic_menu_camera"
+            android:layout_below="@+id/teamsButton"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="95dp"
+            android:layout_height="50dp"
+            android:id="@+id/viewPhotoButton"
+            android:text="View Photos"
+            android:textSize="10sp"
+            android:drawableStart="@android:drawable/ic_menu_gallery"
+            android:layout_below="@+id/addPhotoButton"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="95dp"
+            android:layout_height="50dp"
+            android:id="@+id/importScheduleButton"
+            android:text="Import Schedule"
+            android:textSize="10sp"
+            android:drawableStart="@android:drawable/ic_menu_save"
+            android:layout_below="@+id/viewPhotoButton"
+            android:layout_alignParentStart="true" />
+
+</RelativeLayout>

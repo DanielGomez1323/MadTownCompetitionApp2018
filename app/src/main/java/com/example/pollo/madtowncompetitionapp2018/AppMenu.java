@@ -25,6 +25,13 @@ public class AppMenu extends AppCompatActivity {
         searchButton = findViewById(R.id.searchButton);
         scoutButton = findViewById(R.id.scoutButton);
         uploadButton = findViewById(R.id.uploadButton);
-        
+        importScheduleButton = findViewById(R.id.importScheduleButton);
+
+        //createPicturesDatabase();
+        //createDatabase();
+        //createMatchDatabase();
+
+
+
     }
 }
