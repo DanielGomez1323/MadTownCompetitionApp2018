@@ -26,7 +26,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true" />
     <requestFocus/>
-    
+
     <TextView
         android:layout_width="150dp"
         android:layout_height="25dp"
@@ -45,7 +45,7 @@
         android:id="@+id/blueCheckBox"
         android:layout_below="@+id/allianceColorTextView"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="100dp"/>
+        android:layout_marginStart="200dp"/>
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -54,7 +54,7 @@
         android:id="@+id/redCheckBox"
         android:layout_below="@+id/allianceColorTextView"
         android:layout_alignTop="@+id/blueCheckBox"
-        android:layout_marginStart="230dp"/>
+        android:layout_marginStart="330dp"/>
 
     <Button
         android:layout_width="wrap_content"
