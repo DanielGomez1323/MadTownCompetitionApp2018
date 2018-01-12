@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:text="Next"
         android:id="@+id/scoutMenuButton"
-        and/>
-
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"/>
 
 </RelativeLayout>
