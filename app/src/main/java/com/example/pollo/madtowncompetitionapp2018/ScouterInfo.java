@@ -1,7 +1,9 @@
 package com.example.pollo.madtowncompetitionapp2018;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Checkable;
@@ -21,5 +23,13 @@ public class ScouterInfo extends AppCompatActivity {
         blueCheckBox = findViewById(R.id.blueCheckBox);
         redCheckBox = findViewById(R.id.redCheckBox);
         scoutMenuButton = findViewById(R.id.scoutMenuButton);
+
+        scoutMenuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent scoutMenuIntent = new Intent(getApplicationContext(), ScoutingMenu.class);
+                startActivity(scoutMenuIntent);
+            }
+        });
     }
 }
