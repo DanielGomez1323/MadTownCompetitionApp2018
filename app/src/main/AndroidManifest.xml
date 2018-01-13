@@ -17,7 +17,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".ScouterInfo" />
-        <activity android:name=".ScoutingMenu"></activity>
+        <activity android:name=".ScoutingMenu" />
+        <activity
+            android:name=".TabbedScouting"
+            android:label="@string/title_activity_tabbed_scouting"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
