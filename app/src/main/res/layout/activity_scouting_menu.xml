@@ -23,6 +23,7 @@
         android:inputType="number"
         android:ems="10"
         android:hint="Ex. 1323"
+        android:id="@+id/teamNumberAutoEditText"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true" />
     <requestFocus/>
@@ -44,6 +45,7 @@
         android:inputType="number"
         android:ems="10"
         android:hint="Ex. 12"
+        android:id="@+id/matchNumberEditText"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="50dp" />
