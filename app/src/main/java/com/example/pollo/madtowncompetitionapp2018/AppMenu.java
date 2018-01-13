@@ -1,9 +1,11 @@
 package com.example.pollo.madtowncompetitionapp2018;
 
 import android.content.Intent;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -30,9 +32,9 @@ public class AppMenu extends AppCompatActivity {
         uploadButton = findViewById(R.id.uploadButton);
         importScheduleButton = findViewById(R.id.importScheduleButton);
 
-        //createPicturesDatabase();
-        //createDatabase();
-        //createMatchDatabase();
+        createPicturesDatabase();
+        createDatabase();
+        createMatchDatabase();
 
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
@@ -85,8 +87,36 @@ public class AppMenu extends AppCompatActivity {
                 pullSchedule();
             }
         });*/
-
-
-
     }
+    public void createDatabase(){
+        try {
+            myDB = openOrCreateDatabase("FRC", MODE_PRIVATE, null);
+            myDB.execSQL("CREATE TABLE IF NOT EXISTS PowerUp ( _id INTEGER PRIMARY KEY AUTOINCREMENT, scoutName varchar, allianceColor int, teamNumber int, matchNumber int, robotPosition int, baseLineCrossed int, autoHighBlockPlaced int, autoLowBlockPlaced int, highBlocksPlaced int, lowBlocksPlaced int, vaultBlocksPlaced int, climbTime int, climbSuccess int, robotNotes varchar)");
+            if (myDB != null)
+                myDB.close();
+        }catch (SQLException e) {
+            Log.e("Error", "Error", e);
+        }
+    }
+    public void createPicturesDatabase(){
+        try{
+            myDB = openOrCreateDatabase("FRC", MODE_PRIVATE, null);
+            myDB.execSQL("CREATE TABLE IF NOT EXISTS TeamPictures ( _id INTEGER PRIMARY KEY AUTOINCREMENT, teamNumber int, pic1 VARCHAR)");
+            if (myDB != null)
+                myDB.close();
+        } catch (SQLException e) {
+            Log.e("Error", "Error", e);
+        }
+    }
+    public void createMatchDatabase(){
+        try{
+            myDB = openOrCreateDatabase("FRC", MODE_PRIVATE, null);
+            myDB.execSQL("CREATE TABLE IF NOT EXISTS MatchSchedule (_id INTEGER PRIMARY KEY AUTOINCREMENT, matchNumber int, teamNumber int, allianceColor int)");
+            if (myDB != null)
+                myDB.close();
+        }   catch (SQLException e) {
+            Log.e("Error", "Error", e);
+        }
+    }
+
 }
