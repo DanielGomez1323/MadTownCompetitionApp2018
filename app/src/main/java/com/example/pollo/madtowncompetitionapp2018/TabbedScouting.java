@@ -55,8 +55,8 @@ public class TabbedScouting extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        //TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        //tabLayout.setupWithViewPager(mViewPager);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(mViewPager);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -129,6 +129,7 @@ public class TabbedScouting extends AppCompatActivity {
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
+     * @author NotTaylorAnderson
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
@@ -140,6 +141,14 @@ public class TabbedScouting extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
+            switch(position){
+                case 0:
+                    return AutoFragment.newInstance();
+                /*case 1:
+                    return TeleopFragment.newInstance();
+                case 2:
+                    return NotesFragment.newInstance();*/
+            }
             return PlaceholderFragment.newInstance(position + 1);
         }
 
@@ -147,6 +156,33 @@ public class TabbedScouting extends AppCompatActivity {
         public int getCount() {
             // Show 3 total pages.
             return 3;
+        }
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position) {
+                case 0:
+                    return "Auto";
+                /*case 1:
+                    return "Teleop";
+                case 2:
+                    return "Notes";*/
+            }
+            return null;
+        }
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus){
+        super.onWindowFocusChanged(hasFocus);
+        if(hasFocus){
+            getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+            );
         }
     }
 }
