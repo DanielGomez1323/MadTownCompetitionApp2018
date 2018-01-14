@@ -26,19 +26,19 @@
         android:drawableLeft="@android:drawable/ic_menu_search"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true" />
-    
-    <Button
-        android:layout_width="95dp"
-        android:layout_height="50dp"
-        android:id="@+id/scoutButton"
-        android:text="Scout"
-        android:textSize="10sp"
-        android:drawableStart="@android:drawable/ic_menu_agenda"
-        android:layout_below="@+id/searchButton"
-        android:layout_alignParentStart="true" />
 
     <Button
-        android:layout_width="95dp"
+        android:id="@+id/scoutButton"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/searchButton"
+        android:drawableStart="@android:drawable/ic_menu_agenda"
+        android:text="Scout"
+        android:textSize="10sp" />
+
+    <Button
+        android:layout_width="110dp"
         android:layout_height="50dp"
         android:id="@+id/uploadButton"
         android:text="Upload"
@@ -48,7 +48,7 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:layout_width="95dp"
+        android:layout_width="110dp"
         android:layout_height="50dp"
         android:id="@+id/teamsButton"
         android:text="Teams"
@@ -57,7 +57,7 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:layout_width="95dp"
+        android:layout_width="110dp"
         android:layout_height="50dp"
         android:id="@+id/addPhotoButton"
         android:text="Add Photo"
@@ -67,7 +67,7 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:layout_width="95dp"
+        android:layout_width="110dp"
         android:layout_height="50dp"
         android:id="@+id/viewPhotoButton"
         android:text="View Photos"
@@ -77,7 +77,7 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:layout_width="95dp"
+        android:layout_width="110dp"
         android:layout_height="50dp"
         android:id="@+id/importScheduleButton"
         android:text="Import Schedule"
