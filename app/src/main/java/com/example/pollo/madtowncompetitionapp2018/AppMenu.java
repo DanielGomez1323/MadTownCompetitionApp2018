@@ -91,7 +91,7 @@ public class AppMenu extends AppCompatActivity {
     public void createDatabase(){
         try {
             myDB = openOrCreateDatabase("FRC", MODE_PRIVATE, null);
-            myDB.execSQL("CREATE TABLE IF NOT EXISTS PowerUp ( _id INTEGER PRIMARY KEY AUTOINCREMENT, scoutName varchar, allianceColor int, teamNumber int, matchNumber int, robotPosition int, baseLineCrossed int, autoHighBlockPlaced int, autoLowBlockPlaced int, highBlocksPlaced int, lowBlocksPlaced int, vaultBlocksPlaced int, climbTime int, climbSuccess int, robotNotes varchar)");
+            myDB.execSQL("CREATE TABLE IF NOT EXISTS PowerUp ( _id INTEGER PRIMARY KEY AUTOINCREMENT, scoutName varchar, allianceColor int, teamNumber int, matchNumber int, robotPosition int, baseLineCrossed int, autoHighCubePlaced int, autoLowCubePlaced int, highCubesPlaced int, lowCubesPlaced int, vaultCubesPlaced int, climbTime int, climbSuccess int, robotNotes varchar)");
             if (myDB != null)
                 myDB.close();
         }catch (SQLException e) {

@@ -144,9 +144,9 @@ public class TabbedScouting extends AppCompatActivity {
             switch(position){
                 case 0:
                     return AutoFragment.newInstance();
-                /*case 1:
+                case 1:
                     return TeleopFragment.newInstance();
-                case 2:
+                /*case 2:
                     return NotesFragment.newInstance();*/
             }
             return PlaceholderFragment.newInstance(position + 1);
@@ -162,9 +162,9 @@ public class TabbedScouting extends AppCompatActivity {
             switch (position) {
                 case 0:
                     return "Auto";
-                /*case 1:
+                case 1:
                     return "Teleop";
-                case 2:
+                /*case 2:
                     return "Notes";*/
             }
             return null;
