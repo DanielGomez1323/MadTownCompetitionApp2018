@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Autonomous Period"
-        android:textSize="30sp"
+        android:textSize="40sp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/autoTextView"
         android:layout_alignParentTop="true"
@@ -20,18 +18,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Position"
-        android:textSize="25sp"
+        android:textSize="35sp"
         android:textColor="#000000"
         android:id="@+id/positionTextView"
         android:layout_below="@+id/autoTextView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="25dp" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Left"
-        android:textSize="18sp"
+        android:textSize="25sp"
         android:id="@+id/leftPositionCheckBox"
         android:layout_below="@+id/positionTextView"
         android:layout_alignParentStart="true"
@@ -41,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Center"
-        android:textSize="18sp"
+        android:textSize="25sp"
         android:id="@+id/centerPositionCheckBox"
         android:layout_below="@+id/positionTextView"
         android:layout_centerHorizontal="true"
@@ -51,7 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Right"
-        android:textSize="18sp"
+        android:textSize="25sp"
         android:id="@+id/rightPositionCheckBox"
         android:layout_below="@+id/positionTextView"
         android:layout_alignParentEnd="true"
@@ -61,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Baseline Crossed?:"
-        android:textSize="25sp"
+        android:textSize="35sp"
         android:textColor="#000000"
         android:id="@+id/baselineTextView"
         android:layout_below="@+id/centerPositionCheckBox"
@@ -72,7 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Baseline Crossed"
-        android:textSize="18sp"
+        android:textSize="25sp"
         android:id="@+id/baselineCrossedCheckBox"
         android:layout_below="@+id/baselineTextView"
         android:layout_centerHorizontal="true"
@@ -82,7 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Power Cube Placed:"
-        android:textSize="25sp"
+        android:textSize="35sp"
         android:textColor="#000000"
         android:id="@+id/cubePlacementTextView"
         android:layout_below="@+id/baselineCrossedCheckBox"
@@ -93,20 +91,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="High"
-        android:textSize="18sp"
+        android:textSize="25sp"
         android:id="@+id/highCubeCheckBox"
         android:layout_below="@+id/cubePlacementTextView"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="400dp"
         android:layout_marginTop="10dp" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Low"
-        android:textSize="18sp"
+        android:textSize="25sp"
         android:id="@+id/lowCubeCheckBox"
         android:layout_below="@+id/cubePlacementTextView"
-        android:layout_marginStart="250dp"
+        android:layout_marginStart="800dp"
         android:layout_marginTop="10dp" />
 
 </RelativeLayout>
