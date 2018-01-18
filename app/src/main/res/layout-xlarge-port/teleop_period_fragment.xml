@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Teleop Period"
+        android:textSize="40sp"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:id="@+id/teleopPeriodTextView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Power Cubes Placed:"
+        android:textSize="30sp"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:id="@+id/powerCubesTextView"
+        android:layout_below="@+id/teleopPeriodTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="High:"
+        android:textSize="25sp"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:id="@+id/highPlacedTextView"
+        android:layout_below="@+id/powerCubesTextView"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:text="-"
+        android:id="@+id/decreaseHighCubePlacedButton"
+        android:layout_below="@+id/powerCubesTextView"
+        android:layout_marginStart="85dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="25sp"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:id="@+id/amountHighCubesPlacedTextView"
+        android:layout_below="@+id/powerCubesTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp" />
+
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:text="+"
+        android:id="@+id/increaseHighCubePlacedButton"
+        android:layout_below="@+id/powerCubesTextView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="85dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Low:"
+        android:textSize="25sp"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:id="@+id/lowPlacedTextView"
+        android:layout_below="@+id/highPlacedTextView"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="30dp" />
+
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:text="-"
+        android:id="@+id/decreaseLowCubePlacedButton"
+        android:layout_below="@+id/decreaseHighCubePlacedButton"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="85dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="25sp"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:id="@+id/amountLowCubesPlacedTextView"
+        android:layout_below="@+id/amountHighCubesPlacedTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp" />
+
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:text="+"
+        android:id="@+id/increaseLowCubePlacedCubeButton"
+        android:layout_below="@+id/increaseHighCubePlacedButton"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="85dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vault:"
+        android:textSize="25sp"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:id="@+id/vaultPlacedTextView"
+        android:layout_below="@+id/lowPlacedTextView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="30dp" />
+
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:text="-"
+        android:id="@+id/decreaseVaultCubePlacedButton"
+        android:layout_below="@id/decreaseLowCubePlacedButton"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="85dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="25sp"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:id="@+id/amountVaultCubesPlacedTextView"
+        android:layout_below="@+id/amountLowCubesPlacedTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp" />
+
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:text="+"
+        android:id="@+id/increaseVaultCubePlacedButton"
+        android:layout_below="@+id/decreaseLowCubePlacedButton"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="85dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Climb"
+        android:textSize="30sp"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:id="@+id/climbTextView"
+        android:layout_below="@+id/amountVaultCubesPlacedTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <SeekBar
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:minWidth="250dp"
+        android:max="20"
+        android:progress="0"
+        android:indeterminate="false"
+        android:id="@+id/climbTimeSeekBar"
+        android:layout_below="@+id/climbTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="25sp"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:id="@+id/zeroTimeTextView"
+        android:layout_below="@+id/climbTimeSeekBar"
+        android:layout_alignStart="@+id/climbTimeSeekBar"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ClimbTime: 0"
+        android:textSize="25sp"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:id="@+id/climbCountTextView"
+        android:layout_below="@+id/climbTimeSeekBar"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20"
+        android:textSize="25sp"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:id="@+id/twentyTimeTextView"
+        android:layout_below="@+id/climbTimeSeekBar"
+        android:layout_alignEnd="@+id/climbTimeSeekBar"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Successful Climb?"
+        android:textSize="30sp"
+        android:id="@+id/successfulClimbCheckBox"
+        android:layout_below="@+id/climbCountTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+</RelativeLayout>
