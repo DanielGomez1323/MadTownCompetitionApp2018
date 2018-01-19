@@ -1,5 +1,7 @@
 package com.example.pollo.madtowncompetitionapp2018;
 
+import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -62,7 +64,8 @@ public class TabbedScouting extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                ContentValues c = new ContentValues();
+                Intent i = getIntent();
             }
         });
 

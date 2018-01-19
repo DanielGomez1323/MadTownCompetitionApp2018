@@ -8,9 +8,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Checkable;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class ScouterInfo extends AppCompatActivity {
-    EditText scoutNameEdtiText;
+    EditText scoutNameEditText;
     CheckBox blueCheckBox;
     CheckBox redCheckBox;
     Button scoutMenuButton;
@@ -19,16 +20,46 @@ public class ScouterInfo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scouter_info);
-        scoutNameEdtiText = findViewById(R.id.scoutNameEditText);
+        scoutNameEditText = findViewById(R.id.scoutNameEditText);
         blueCheckBox = findViewById(R.id.blueCheckBox);
         redCheckBox = findViewById(R.id.redCheckBox);
         scoutMenuButton = findViewById(R.id.scoutMenuButton);
 
+        redCheckBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(blueCheckBox.isChecked()){
+                    blueCheckBox.toggle();
+                }
+            }
+        });
+        blueCheckBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(redCheckBox.isChecked()){
+                    redCheckBox.toggle();
+                }
+            }
+        });
         scoutMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent scoutMenuIntent = new Intent(getApplicationContext(), ScoutingMenu.class);
-                startActivity(scoutMenuIntent);
+                if (scoutNameEditText.getText().toString().length() > 0) {
+                    if ((redCheckBox.isChecked() || blueCheckBox.isChecked()) && !(redCheckBox.isChecked() && blueCheckBox.isChecked())) {
+                        Intent autoIntent = new Intent(getApplicationContext(), ScoutingMenu.class);
+                        autoIntent.putExtra("scoutName", scoutNameEditText.getText().toString()/*Tells the app to take the scouts name and save it*/);
+                        if (redCheckBox.isChecked()) {
+                            autoIntent.putExtra("allianceColor", "0");
+                        } else {
+                            autoIntent.putExtra("allianceColor", "1");
+                        }
+                        startActivity(autoIntent);
+                    }else {
+                        Toast.makeText(getApplicationContext(), "Come on dude. Choose a color.", Toast.LENGTH_SHORT).show();
+                    }
+                }else{
+                    Toast.makeText(getApplicationContext(), "Bro, don't forget your name.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
