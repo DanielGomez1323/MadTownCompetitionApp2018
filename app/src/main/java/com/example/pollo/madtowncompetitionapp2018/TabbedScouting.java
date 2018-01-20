@@ -22,6 +22,8 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import java.util.List;
+
 public class TabbedScouting extends AppCompatActivity {
     SQLiteDatabase myDB = null;
     int autoID;
@@ -66,6 +68,11 @@ public class TabbedScouting extends AppCompatActivity {
             public void onClick(View view) {
                 ContentValues c = new ContentValues();
                 Intent i = getIntent();
+                String teamNumber = i.getStringExtra("teamNumber");
+                String teamColor = i.getStringExtra("teamColor");
+                String matchNumber = i.getStringExtra("matchNumber");
+
+                List<Fragment> f = getSupportFragmentManager().getFragments();
             }
         });
 

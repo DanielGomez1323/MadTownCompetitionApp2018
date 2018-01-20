@@ -64,8 +64,45 @@ public class AutoFragment extends Fragment {
                 }
             }
         });
+        highCubeCheckBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (lowCubeCheckBox.isChecked()){
+                    lowCubeCheckBox.toggle();
+                }
+            }
+        });
+        lowCubeCheckBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (highCubeCheckBox.isChecked()){
+                    highCubeCheckBox.toggle();
+                }
+            }
+        });
         return rootView;
     }
-
-
+    public Bundle getData() {
+        Bundle b = new Bundle();
+        if (leftPositionCheckBox.isChecked()) {
+            b.putString("robotPosition", "0");
+        }else if (centerPositionCheckBox.isChecked()){
+            b.putString("robotPosition", "1");
+        }else if (rightPositionCheckBox.isChecked()){
+            b.putString("robotPosition", "2");
+        }else {
+            b.putString("robotPosition", "3");
+        }
+        if (baselineCrossedCheckBox.isChecked()){
+            b.putString("baseLineCrossed", "0");
+        }else{
+            b.putString("baseLineCrossed", "1");
+        }
+        if (highCubeCheckBox.isChecked()){
+            b.putString("autoHighCubePlaced", "1");
+        }else {
+            b.putString("autoHighCubePlaced", "0");
+        }
+        return b;
+    }
 }
