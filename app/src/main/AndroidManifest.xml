@@ -21,7 +21,8 @@
         <activity
             android:name=".TabbedScouting"
             android:label="@string/title_activity_tabbed_scouting"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".UploadData"></activity>
     </application>
 
 </manifest>
