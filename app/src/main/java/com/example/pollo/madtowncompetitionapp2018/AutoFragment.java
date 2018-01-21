@@ -103,6 +103,11 @@ public class AutoFragment extends Fragment {
         }else {
             b.putString("autoHighCubePlaced", "0");
         }
+        if (lowCubeCheckBox.isChecked()){
+            b.putString("autoLowCubePlaced", "1");
+        }else {
+            b.putString("autoLowCubePlaced", "0");
+        }
         return b;
     }
 }

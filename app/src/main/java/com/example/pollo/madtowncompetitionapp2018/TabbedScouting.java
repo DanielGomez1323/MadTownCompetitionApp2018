@@ -2,6 +2,7 @@ package com.example.pollo.madtowncompetitionapp2018;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -21,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -68,11 +70,62 @@ public class TabbedScouting extends AppCompatActivity {
             public void onClick(View view) {
                 ContentValues c = new ContentValues();
                 Intent i = getIntent();
-                String teamNumber = i.getStringExtra("teamNumber");
+                String scoutName = i.getStringExtra("scoutName");
                 String teamColor = i.getStringExtra("teamColor");
+                String teamNumber = i.getStringExtra("teamNumber");
                 String matchNumber = i.getStringExtra("matchNumber");
 
                 List<Fragment> f = getSupportFragmentManager().getFragments();
+                AutoFragment autoFragment = (AutoFragment) getSupportFragmentManager().findFragmentByTag(f.get(0).getTag());
+                Bundle ab = autoFragment.getData();
+                String robotPosition = ab.getString("robotPosition");
+                String baseLineCrossed = ab.getString("baseLineCrossed");
+                String autoHighCubePlaced = ab.getString("autoHighCubePlaced");
+                String autoLowCubePlaced = ab.getString("autoLowCubePlaced");
+
+                TeleopFragment teleopFragment = (TeleopFragment) getSupportFragmentManager().findFragmentByTag(f.get(1).getTag());
+                Bundle tb = teleopFragment.getData();
+                String highCubesPlaced = tb.getString("highCubesPlaced");
+                String lowCubesPlaced = tb.getString("lowCubesPlaced");
+                String vaultCubesPlaced = tb.getString("vaultCubesPlaced");
+                String climbTime = tb.getString("climbTime");
+                String climbSuccess = tb.getString("climbSuccess");
+
+                NotesFragment notesFragment = (NotesFragment) getSupportFragmentManager().findFragmentByTag(f.get(2).getTag());
+                Bundle nb = notesFragment.getData();
+                String robotNotes = nb.getString("robotNotes");
+
+                c.put("scoutName", scoutName);
+                c.put("teamColor", teamColor);
+
+                c.put("teamNumber", teamNumber);
+                c.put("matchNumber", matchNumber);
+
+                c.put("robotPosition", robotPosition);
+                c.put("baseLineCrossed", baseLineCrossed);
+                c.put("autoHighCubePlaced", autoHighCubePlaced);
+                c.put("autoLowCubePlaced", autoLowCubePlaced);
+
+                c.put("highCubesPlaced", highCubesPlaced);
+                c.put("lowCubesPlaced", lowCubesPlaced);
+                c.put("vaultCubesPlaced", vaultCubesPlaced);
+                c.put("climbTime", climbTime);
+                c.put("climbSuccess", climbSuccess);
+
+                c.put("robotNotes", robotNotes);
+
+
+                myDB = openOrCreateDatabase("FRC", MODE_PRIVATE, null);
+                try {
+                    myDB.insertOrThrow("PowerUp", null, c);
+                }catch (SQLException s){
+                    Toast.makeText(getApplicationContext(), "Oopsie Doopsie", Toast.LENGTH_SHORT).show();
+                }
+                if (myDB != null){
+                    myDB.close();
+                }
+                //Intent list = new Intent(getApplicationContext(), DataUpload.class);
+                //startActivity(list);
             }
         });
 
@@ -156,8 +209,8 @@ public class TabbedScouting extends AppCompatActivity {
                     return AutoFragment.newInstance();
                 case 1:
                     return TeleopFragment.newInstance();
-                /*case 2:
-                    return NotesFragment.newInstance();*/
+                case 2:
+                    return NotesFragment.newInstance();
             }
             return PlaceholderFragment.newInstance(position + 1);
         }
@@ -174,8 +227,8 @@ public class TabbedScouting extends AppCompatActivity {
                     return "Auto";
                 case 1:
                     return "Teleop";
-                /*case 2:
-                    return "Notes";*/
+                case 2:
+                    return "Notes";
             }
             return null;
         }
