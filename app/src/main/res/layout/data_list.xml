@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Team: "
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/teamNumberTextView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Match: "
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/matchNumberTextView"
+        android:layout_below="@+id/teamNumberTextView"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Blue: "
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/teamColorTextView"
+        android:layout_below="@+id/matchNumberTextView"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Robot Position: "
+        android:textAppearance="?android:textAppearanceMedium"
+        android:id="@+id/robotPositionTextView"
+        android:layout_below="@+id/teamColorTextView"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Baseline Crossed: "
+        android:textAppearance="?android:textAppearanceMedium"
+        android:id="@+id/baseLineCrossedTextView"
+        android:layout_below="@+id/robotPositionTextView"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Auto High Cube Placed: "
+        android:textAppearance="?android:textAppearanceMedium"
+        android:id="@+id/autoHighTextView"
+        android:layout_below="@+id/baseLineCrossedTextView"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Auto Low Cube Placed: "
+        android:textAppearance="?android:textAppearanceMedium"
+        android:id="@+id/autoLowTextView"
+        android:layout_below="@+id/autoHighTextView"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="High Cubes Placed: "
+        android:textAppearance="?android:textAppearanceMedium"
+        android:id="@+id/highCubesTextView"
+        android:layout_below="@+id/autoLowTextView"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Low Cubes Placed: "
+        android:textAppearance="?android:textAppearanceMedium"
+        android:id="@+id/lowCubesTextView"
+        android:layout_below="@+id/highCubesTextView"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vault Cubes Placed: "
+        android:textAppearance="?android:textAppearanceMedium"
+        android:id="@+id/vaultCubesTextVIew"
+        android:layout_below="@+id/lowCubesTextView"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Climb Time: "
+        android:textAppearance="?android:textAppearanceMedium"
+        android:id="@+id/robotClimbTextView"
+        android:layout_below="@+id/vaultCubesTextVIew"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Climb Success: "
+        android:textAppearance="?android:textAppearanceMedium"
+        android:id="@+id/successTextView"
+        android:layout_below="@+id/robotClimbTextView"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notes: "
+        android:textAppearance="?android:textAppearanceMedium"
+        android:id="@+id/robotNotesTextView"
+        android:layout_below="@+id/successTextView"
+        android:layout_marginTop="5dp" />
+
+</RelativeLayout>
