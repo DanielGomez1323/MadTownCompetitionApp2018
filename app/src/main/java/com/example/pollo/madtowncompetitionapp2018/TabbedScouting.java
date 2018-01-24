@@ -124,8 +124,8 @@ public class TabbedScouting extends AppCompatActivity {
                 if (myDB != null){
                     myDB.close();
                 }
-                //Intent list = new Intent(getApplicationContext(), DataUpload.class);
-                //startActivity(list);
+                Intent list = new Intent(getApplicationContext(), UploadData.class);
+                startActivity(list);
             }
         });
 
