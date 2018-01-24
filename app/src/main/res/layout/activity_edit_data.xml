@@ -1,9 +1,269 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context="com.example.pollo.madtowncompetitionapp2018.EditData">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Team Number"
+        android:id="@+id/teamNumberTV"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/teamNumberEnterText"
+        android:hint="Team Number"
+        android:layout_below="@+id/teamNumberTV"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Match Number"
+        android:id="@+id/matchNumberTV"
+        android:layout_below="@+id/teamNumberEnterText"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/matchNumberEnterText"
+        android:hint="Match Number"
+        android:layout_below="@+id/matchNumberTV"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:id="@+id/teamColorTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Team Color"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/matchNumberEnterText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/teamColorEnterText"
+        android:hint="Team Color"
+        android:layout_below="@+id/teamColorTV"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/teamColorEnterText"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Robot Position"
+        android:id="@+id/robotPositionTextView"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:hint="Robot Positon"
+        android:id="@+id/robotPositionEnterText"
+        android:layout_below="@+id/robotPositionTextView"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Baseline Crossed "
+        android:id="@+id/baseLineCrossedTV"
+        android:layout_below="@+id/robotPositionEnterText"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/baseLineEnterText"
+        android:hint="Baseline Crossed"
+        android:layout_below="@+id/baseLineCrossedTV"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Auto High Cube Placed"
+        android:id="@+id/autoHighCubeTV"
+        android:layout_below="@+id/baseLineEnterText"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/autoHighCubeEnterText"
+        android:hint="Auto High Cube Placed"
+        android:layout_below="@+id/autoHighCubeTV"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Auto Low Cube Placed"
+        android:id="@+id/autoLowCubeTV"
+        android:layout_below="@+id/autoHighCubeEnterText"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/autoLowCubeEnterText"
+        android:hint="Auto Low Cube Placed"
+        android:layout_below="@+id/autoLowCubeTV"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="High Cubes Placed"
+        android:id="@+id/highCubesPlacedTV"
+        android:layout_below="@+id/autoLowCubeEnterText"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/highCubesPlacedEnterText"
+        android:hint="High Cubes Placed"
+        android:layout_below="@+id/highCubesPlacedTV"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Low Cubes Placed"
+        android:id="@+id/lowCubesPlacedTV"
+        android:layout_below="@+id/highCubesPlacedEnterText"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/lowCubesPlacedEnterText"
+        android:hint="Low Cubes Placed"
+        android:layout_below="@+id/lowCubesPlacedTV"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Vault Cubes Placed"
+        android:id="@+id/vaultCubesPlacedTV"
+        android:layout_below="@+id/lowCubesPlacedEnterText"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/vaultCubesPlacedEnterText"
+        android:hint="Vault Cubes Placed"
+        android:layout_below="@+id/vaultCubesPlacedTV"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Climb Time"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:id="@+id/climbTimeTV"
+        android:layout_below="@+id/vaultCubesPlacedEnterText"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:hint="Climb Time"
+        android:id="@+id/climbTimeEnterText"
+        android:layout_below="@+id/climbTimeTV"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Climb Success"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:id="@+id/climbSuccessTV"
+        android:layout_below="@+id/climbTimeEnterText"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:hint="Climb Success"
+        android:id="@+id/climbSuccessEnterText"
+        android:layout_below="@+id/climbSuccessTV"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notes"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:id="@+id/notesTV"
+        android:layout_below="@+id/climbSuccessEnterText"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:hint="Notes"
+        android:id="@+id/notesEnterText"
+        android:layout_below="@+id/notesTV"
+        android:layout_alignParentEnd="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/buttonStyleSmall"
+        android:text="Enter"
+        android:id="@+id/confirmEditsButton"
+        android:layout_below="@+id/notesEnterText"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
+</ScrollView>

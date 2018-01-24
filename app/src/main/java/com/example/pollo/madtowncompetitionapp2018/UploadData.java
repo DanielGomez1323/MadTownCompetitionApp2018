@@ -15,6 +15,14 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -180,7 +188,7 @@ public class UploadData extends AppCompatActivity {
             }
 
 
-            uploadButton.setOnClickListener(new View.OnClickListener() {
+            /*uploadButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (match.isLoaded()) {
@@ -192,7 +200,7 @@ public class UploadData extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Hey, select a match man.", Toast.LENGTH_SHORT).show();
                     }
                 }
-            });
+            });*/
         }
         deleteButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -226,7 +234,7 @@ public class UploadData extends AppCompatActivity {
 
 
         public void postData(String jsonString) {
-            HttpsURLConnection httpClient = new DefaultHttpClient();
+            HttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost(address);
             InputStream inputStream = null;
             try {
