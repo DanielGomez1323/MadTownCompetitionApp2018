@@ -33,7 +33,6 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.net.ssl.HttpsURLConnection;
 
 public class UploadData extends AppCompatActivity {
     SQLiteDatabase myDB = null;
@@ -188,7 +187,7 @@ public class UploadData extends AppCompatActivity {
             }
 
 
-            /*uploadButton.setOnClickListener(new View.OnClickListener() {
+            uploadButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (match.isLoaded()) {
@@ -200,7 +199,7 @@ public class UploadData extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Hey, select a match man.", Toast.LENGTH_SHORT).show();
                     }
                 }
-            });*/
+            });
         }
         deleteButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override

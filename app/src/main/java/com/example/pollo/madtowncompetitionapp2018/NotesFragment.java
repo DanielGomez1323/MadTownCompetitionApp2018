@@ -17,9 +17,8 @@ public class NotesFragment extends Fragment {
     }
 
     public NotesFragment() {
-        // Required empty public constructor
-    }
 
+    }
 
 
     @Override

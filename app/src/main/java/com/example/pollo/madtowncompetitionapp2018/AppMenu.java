@@ -53,14 +53,14 @@ public class AppMenu extends AppCompatActivity {
                 startActivity(scoutIntent);
             }
         });
-        /*uploadButton.setOnClickListener(new View.OnClickListener() {
+        uploadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent uploadIntent = new Intent(getApplicationContext(), DataUpload.class);
+                Intent uploadIntent = new Intent(getApplicationContext(), UploadData.class);
                 startActivity(uploadIntent);
             }
         });
-        teamsButton.setOnClickListener(new View.OnClickListener() {
+        /*teamsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent teamsIntent = new Intent(getApplicationContext(), TeamRoster.class);
