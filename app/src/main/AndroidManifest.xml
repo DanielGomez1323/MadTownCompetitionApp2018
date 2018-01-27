@@ -32,7 +32,11 @@
         <activity android:name=".EditData" />
         <activity android:name=".TeamRoster" />
         <activity android:name=".TeamListAdapter" />
-        <activity android:name=".AddPhoto"></activity>
+        <activity android:name=".AddPhoto" />
+        <activity android:name=".PictureList" />
+        <activity android:name=".PictureListAdpater" />
+        <activity android:name=".UploadPicture" />
+        <activity android:name=".TeamPictureSelection"></activity>
     </application>
 
 </manifest>

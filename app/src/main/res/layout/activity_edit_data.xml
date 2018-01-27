@@ -48,31 +48,12 @@
         android:layout_alignParentEnd="true"/>
 
     <TextView
-        android:id="@+id/teamColorTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:text="Team Color"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/matchNumberEnterText" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/teamColorEnterText"
-        android:hint="Team Color"
-        android:layout_below="@+id/teamColorTV"
-        android:layout_alignParentEnd="true"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/teamColorEnterText"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Robot Position"
         android:id="@+id/robotPositionTextView"
+        android:layout_below="@+id/matchNumberEnterText"
         android:layout_alignParentStart="true"/>
 
     <EditText

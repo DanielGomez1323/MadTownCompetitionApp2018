@@ -1,5 +1,6 @@
 package com.example.pollo.madtowncompetitionapp2018;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,6 +11,17 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class AppMenu extends AppCompatActivity {
     EditText searchEditText;
@@ -31,6 +43,8 @@ public class AppMenu extends AppCompatActivity {
         scoutButton = findViewById(R.id.scoutButton);
         uploadButton = findViewById(R.id.uploadButton);
         teamsButton = findViewById(R.id.teamsButton);
+        addPhotoButton = findViewById(R.id.addPhotoButton);
+        viewPhotoButton = findViewById(R.id.viewPhotoButton);
         importScheduleButton = findViewById(R.id.importScheduleButton);
 
         createPicturesDatabase();
@@ -39,14 +53,14 @@ public class AppMenu extends AppCompatActivity {
 
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
-        /*searchButton.setOnClickListener(new View.OnClickListener() {
+        searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent searchIntent = new Intent(getApplicationContext(), DataUpload.class);
-                searchIntent.putExtra("search", searchMenuSearchBox.getText());
+                Intent searchIntent = new Intent(getApplicationContext(), UploadData.class);
+                searchIntent.putExtra("search", searchEditText.getText());
                 startActivity(searchIntent);
             }
-        });*/
+        });
         scoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,7 +82,7 @@ public class AppMenu extends AppCompatActivity {
                 startActivity(teamsIntent);
             }
         });
-        /* addPhotoButton.setOnClickListener(new View.OnClickListener() {
+        addPhotoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent addPhotoIntent = new Intent(getApplicationContext(), AddPhoto.class);
@@ -87,7 +101,7 @@ public class AppMenu extends AppCompatActivity {
             public void onClick(View v) {
                 pullSchedule();
             }
-        });*/
+        });
     }
     public void createDatabase(){
         try {
@@ -119,5 +133,51 @@ public class AppMenu extends AppCompatActivity {
             Log.e("Error", "Error", e);
         }
     }
+    public void pullSchedule(){
+        String url = "http://gorohi.com/1323/api/matchSchedule.php?compLevel=qm";
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONArray matches = response.getJSONArray("matches");
+                            for (int i = 0; i < matches.length(); i++) {
+                                JSONObject m = matches.getJSONObject(i);
+                                int matchNumber = m.getInt("matchNumber");
+                                JSONArray teams = m.getJSONArray("teams");
+                                for (int j = 0; j < teams.length(); j++) {
+                                    JSONObject t = teams.getJSONObject(j);
+                                    int teamNumber = t.getInt("teamNumber");
+
+
+                                    ContentValues c = new ContentValues();
+                                    c.put("matchNumber", matchNumber);
+                                    c.put("teamNumber", teamNumber);
+                                    myDB = openOrCreateDatabase("FRC", MODE_PRIVATE, null);
+                                    try {
+                                        myDB.insertOrThrow("MatchSchedule", null, c);
+                                    }catch (SQLException s){
+                                        Toast.makeText(getApplication(), "Error saving", Toast.LENGTH_SHORT).show();
+                                    }
+                                    if (myDB != null){
+                                        myDB.close();
+                                    }
+                                }
+
+                            }
+                        } catch (final JSONException e) {
+                            Log.d("ERROR", e.toString());
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO Auto-generated method stub
+                        error.printStackTrace();
+                    }
+                });
+        Volley.newRequestQueue(this).add(jsObjRequest);
+    }
 }

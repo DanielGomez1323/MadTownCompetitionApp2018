@@ -15,7 +15,7 @@ import android.widget.TextView;
 public class EditData extends AppCompatActivity {
     EditText teamNumberEnterText;
     EditText matchNumberEnterText;
-    EditText teamColorEnterText;
+    //EditText teamColorEnterText;
     EditText robotPositionEnterText;
     EditText baseLineEnterText;
     EditText autoHighCubeEnterText;
@@ -41,8 +41,8 @@ public class EditData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_data);
         teamNumberEnterText = findViewById(R.id.teamNumberEnterText);
-        matchNumberEnterText = findViewById(R.id.matchNumberEditText);
-        teamColorEnterText = findViewById(R.id.teamColorEnterText);
+        matchNumberEnterText = findViewById(R.id.matchNumberEnterText);
+        //teamColorEnterText = findViewById(R.id.teamColorEnterText);
         robotPositionEnterText = findViewById(R.id.robotPositionEnterText);
         baseLineEnterText = findViewById(R.id.baseLineEnterText);
         autoHighCubeEnterText = findViewById(R.id.autoHighCubeEnterText);
@@ -53,6 +53,7 @@ public class EditData extends AppCompatActivity {
         climbTimeEnterText = findViewById(R.id.climbTimeEnterText);
         climbSuccessEnterText = findViewById(R.id.climbSuccessEnterText);
         notesEnterText = findViewById(R.id.notesEnterText);
+        confirmEditsButton = findViewById(R.id.confirmEditsButton);
 
         Intent intent = getIntent();
         id = intent.getStringExtra("ID");
@@ -63,13 +64,13 @@ public class EditData extends AppCompatActivity {
         if (i > 0) {
             teamNumberEnterText.setText(c.getString(c.getColumnIndex("teamNumber")), TextView.BufferType.EDITABLE);
             matchNumberEnterText.setText(c.getString(c.getColumnIndex("matchNumber")), TextView.BufferType.EDITABLE);
-            teamColorEnterText.setText(c.getString(c.getColumnIndex("teamColor")), TextView.BufferType.EDITABLE);
+            //teamColorEnterText.setText(c.getString(c.getColumnIndex("teamColor")), TextView.BufferType.EDITABLE);
             robotPositionEnterText.setText(c.getString(c.getColumnIndex("robotPosition")), TextView.BufferType.EDITABLE);
             baseLineEnterText.setText(c.getString(c.getColumnIndex("baseLineCrossed")), TextView.BufferType.EDITABLE);
             autoHighCubeEnterText.setText(c.getString(c.getColumnIndex("autoHighCubePlaced")), TextView.BufferType.EDITABLE);
             autoLowCubeEnterText.setText(c.getString(c.getColumnIndex("autoLowCubePlaced")), TextView.BufferType.EDITABLE);
             highCubesPlacedEnterText.setText(c.getString(c.getColumnIndex("highCubesPlaced")), TextView.BufferType.EDITABLE);
-            lowCubesPlacedEnterText.setText(c.getString(c.getColumnIndex("lowCubePlaced")), TextView.BufferType.EDITABLE);
+            lowCubesPlacedEnterText.setText(c.getString(c.getColumnIndex("lowCubesPlaced")), TextView.BufferType.EDITABLE);
             vaultCubesPlacedEnterText.setText(c.getString(c.getColumnIndex("vaultCubesPlaced")), TextView.BufferType.EDITABLE);
             climbTimeEnterText.setText(c.getString(c.getColumnIndex("climbTime")), TextView.BufferType.EDITABLE);
             climbSuccessEnterText.setText(c.getString(c.getColumnIndex("climbSuccess")), TextView.BufferType.EDITABLE);
@@ -90,8 +91,8 @@ public class EditData extends AppCompatActivity {
             String robotNotes = notesEnterText.getText().toString();
             robotNotes = robotNotes.replace("'","*");
             myDB.execSQL("UPDATE PowerUp SET teamNumber = " + teamNumberEnterText.getText().toString() +
-                    ", matchNumber = " + matchNumberEnterText.getText().toString() + ", teamColor = " +
-                    teamColorEnterText.getText().toString() + ", robotPosition = " + robotPositionEnterText.getText().toString() +
+                    ", matchNumber = " + matchNumberEnterText.getText().toString() + /*", teamColor = " +
+                    teamColorEnterText.getText().toString() +*/ ", robotPosition = " + robotPositionEnterText.getText().toString() +
                     ", baseLineCrossed = " + baseLineEnterText.getText().toString() + ", autoHighCubePlaced = " +
                     autoHighCubeEnterText.getText().toString() + ", autoLowCubePlaced = " + autoLowCubeEnterText.getText().toString() +
                     ", highCubesPlaced = " + highCubesPlacedEnterText.getText().toString() + ", lowCubesPlaced = " +
@@ -101,7 +102,7 @@ public class EditData extends AppCompatActivity {
         }catch (SQLException e){
             System.out.print(e);
         }
-        Cursor cur = myDB.rawQuery("SELECT * FROM SteamWorks Where _id =" + id, null);
+        Cursor cur = myDB.rawQuery("SELECT * FROM PowerUp Where _id =" + id, null);
         cur.moveToFirst();
         tNumber = cur.getString(cur.getColumnIndex("teamNumber"));
         mNumber = cur.getString(cur.getColumnIndex("matchNumber"));
