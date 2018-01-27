@@ -30,6 +30,7 @@ public class AppMenu extends AppCompatActivity {
         searchButton = findViewById(R.id.searchButton);
         scoutButton = findViewById(R.id.scoutButton);
         uploadButton = findViewById(R.id.uploadButton);
+        teamsButton = findViewById(R.id.teamsButton);
         importScheduleButton = findViewById(R.id.importScheduleButton);
 
         createPicturesDatabase();
@@ -60,14 +61,14 @@ public class AppMenu extends AppCompatActivity {
                 startActivity(uploadIntent);
             }
         });
-        /*teamsButton.setOnClickListener(new View.OnClickListener() {
+        teamsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent teamsIntent = new Intent(getApplicationContext(), TeamRoster.class);
                 startActivity(teamsIntent);
             }
         });
-        addPhotoButton.setOnClickListener(new View.OnClickListener() {
+        /* addPhotoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent addPhotoIntent = new Intent(getApplicationContext(), addPhoto.class);

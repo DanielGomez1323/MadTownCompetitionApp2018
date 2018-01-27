@@ -29,7 +29,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".UploadData" />
         <activity android:name=".DataListAdapter" />
-        <activity android:name=".EditData"></activity>
+        <activity android:name=".EditData" />
+        <activity android:name=".TeamRoster" />
+        <activity android:name=".TeamListAdapter"></activity>
     </application>
 
 </manifest>

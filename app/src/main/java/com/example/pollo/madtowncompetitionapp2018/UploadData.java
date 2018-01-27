@@ -43,7 +43,7 @@ public class UploadData extends AppCompatActivity {
     Button scrollUpButton;
     Match match;
     String query;
-    String address = "http://www.gorohi.com/1323/2017/data.php";
+    String address = "http://scout.team1323.com/2018/insertData.php";
     String _id;
     DataListAdapter listAdapter;
 

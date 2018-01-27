@@ -24,6 +24,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TabbedScouting extends AppCompatActivity {
@@ -75,15 +76,15 @@ public class TabbedScouting extends AppCompatActivity {
                 String teamNumber = i.getStringExtra("teamNumber");
                 String matchNumber = i.getStringExtra("matchNumber");
 
-                List<Fragment> f = getSupportFragmentManager().getFragments();
-                AutoFragment autoFragment = (AutoFragment) getSupportFragmentManager().findFragmentByTag(f.get(0).getTag());
+                List<Fragment> f = mSectionsPagerAdapter.getFragments();/*getSupportFragmentManager().getFragments();*/
+                AutoFragment autoFragment = (AutoFragment) f.get(0);/*getSupportFragmentManager().findFragmentByTag(f.get(0).getTag());*/
                 Bundle ab = autoFragment.getData();
                 String robotPosition = ab.getString("robotPosition");
                 String baseLineCrossed = ab.getString("baseLineCrossed");
                 String autoHighCubePlaced = ab.getString("autoHighCubePlaced");
                 String autoLowCubePlaced = ab.getString("autoLowCubePlaced");
 
-                TeleopFragment teleopFragment = (TeleopFragment) getSupportFragmentManager().findFragmentByTag(f.get(1).getTag());
+                TeleopFragment teleopFragment = (TeleopFragment) f.get(1);/*getSupportFragmentManager().findFragmentByTag(f.get(1).getTag());*/
                 Bundle tb = teleopFragment.getData();
                 String highCubesPlaced = tb.getString("highCubesPlaced");
                 String lowCubesPlaced = tb.getString("lowCubesPlaced");
@@ -91,7 +92,7 @@ public class TabbedScouting extends AppCompatActivity {
                 String climbTime = tb.getString("climbTime");
                 String climbSuccess = tb.getString("climbSuccess");
 
-                NotesFragment notesFragment = (NotesFragment) getSupportFragmentManager().findFragmentByTag(f.get(2).getTag());
+                NotesFragment notesFragment = (NotesFragment) f.get(2);/*getSupportFragmentManager().findFragmentByTag(f.get(2).getTag());*/
                 Bundle nb = notesFragment.getData();
                 String robotNotes = nb.getString("robotNotes");
 
@@ -200,17 +201,26 @@ public class TabbedScouting extends AppCompatActivity {
             super(fm);
         }
 
+        private List<Fragment> fragments = new ArrayList<>(3);
+        public List<Fragment> getFragments(){return fragments;}
+
         @Override
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch(position){
                 case 0:
-                    return AutoFragment.newInstance();
+                    AutoFragment autoFragment = AutoFragment.newInstance();
+                    fragments.add(autoFragment);
+                    return autoFragment;
                 case 1:
-                    return TeleopFragment.newInstance();
+                    TeleopFragment teleopFragment = TeleopFragment.newInstance();
+                    fragments.add(teleopFragment);
+                    return teleopFragment;
                 case 2:
-                    return NotesFragment.newInstance();
+                    NotesFragment notesFragment = NotesFragment.newInstance();
+                    fragments.add(notesFragment);
+                    return notesFragment;
             }
             return PlaceholderFragment.newInstance(position + 1);
         }
