@@ -26,12 +26,13 @@ public class DataListAdapter extends CursorAdapter{
         TextView autoLowTextView = view.findViewById(R.id.autoLowTextView);
         TextView highCubesTextView = view.findViewById(R.id.highCubesTextView);
         TextView lowCubesTextView = view.findViewById(R.id.lowCubesTextView);
-        TextView vaultCubesTextView = view.findViewById(R.id.vaultPlacedTextView);
+        TextView vaultCubesTextView = view.findViewById(R.id.vaultCubesTextView);
         TextView robotClimbTextView = view.findViewById(R.id.robotClimbTextView);
         TextView successTextView = view.findViewById(R.id.successTextView);
         TextView robotNotesTextView = view.findViewById(R.id.robotNotesTextView);
         teamNumberTextView.setText(teamNumberTextView.getText() + cursor.getString(cursor.getColumnIndex("teamNumber")));
         matchNumberTextView.setText(matchNumberTextView.getText() + cursor.getString(cursor.getColumnIndex("matchNumber")));
+        //teamColorTextView.setText(teamColorTextView.getText() + cursor.getString(cursor.getColumnIndex("teamColor")));
         robotPositionTextView.setText(robotPositionTextView.getText() + cursor.getString(cursor.getColumnIndex("robotPosition")));
         baseLineCrossedTextView.setText(baseLineCrossedTextView.getText() + cursor.getString(cursor.getColumnIndex("baseLineCrossed")));
         autoHighTextView.setText(autoHighTextView.getText() + cursor.getString(cursor.getColumnIndex("autoHighCubePlaced")));
@@ -44,8 +45,8 @@ public class DataListAdapter extends CursorAdapter{
         robotNotesTextView.setText(robotNotesTextView.getText() + cursor.getString(cursor.getColumnIndex("robotNotes")));
         teamNumberTextView.setText("Team " + cursor.getString(cursor.getColumnIndex("teamNumber")));
         matchNumberTextView.setText("Match " + cursor.getString(cursor.getColumnIndex("matchNumber")));
-        String color = cursor.getString(cursor.getColumnIndex("teamColor"));
-        switch(cursor.getString(cursor.getColumnIndex("teamColor"))){
+        //String color = cursor.getString(cursor.getColumnIndex("teamColor"));
+        /*switch(cursor.getString(cursor.getColumnIndex("teamColor"))){
             case "1":
                 color = "Blue";
                 break;
@@ -54,17 +55,17 @@ public class DataListAdapter extends CursorAdapter{
                 break;
             default:
                 break;
-        }
+        }*/
         String robotPosition = cursor.getString(cursor.getColumnIndex("robotPosition"));
         switch(cursor.getString(cursor.getColumnIndex("robotPosition"))){
             case "0":
-                robotPosition = "Left Peg";
+                robotPosition = "Left";
                 break;
             case "1":
-                robotPosition = "Middle Peg";
+                robotPosition = "Middle";
                 break;
             case "2":
-                robotPosition = "Right Peg";
+                robotPosition = "Right";
                 break;
             case "3":
                 robotPosition = "Did Not Show";
@@ -82,7 +83,7 @@ public class DataListAdapter extends CursorAdapter{
             default:
                 break;
         }
-        teamColorTextView.setText(color);
+        //teamColorTextView.setText(color);
         robotPositionTextView.setText(robotPosition);
         baseLineCrossedTextView.setText(baseLineCrossed);
         autoHighTextView.setText("Auto High Cube Placed: " + cursor.getString(cursor.getColumnIndex("autoHighCubePlaced")));

@@ -71,7 +71,7 @@ public class AppMenu extends AppCompatActivity {
         /* addPhotoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent addPhotoIntent = new Intent(getApplicationContext(), addPhoto.class);
+                Intent addPhotoIntent = new Intent(getApplicationContext(), AddPhoto.class);
                 startActivity(addPhotoIntent);
             }
         });
@@ -92,7 +92,7 @@ public class AppMenu extends AppCompatActivity {
     public void createDatabase(){
         try {
             myDB = openOrCreateDatabase("FRC", MODE_PRIVATE, null);
-            myDB.execSQL("CREATE TABLE IF NOT EXISTS PowerUp ( _id INTEGER PRIMARY KEY AUTOINCREMENT, scoutName varchar, allianceColor int, teamNumber int, matchNumber int, robotPosition int, baseLineCrossed int, autoHighCubePlaced int, autoLowCubePlaced int, highCubesPlaced int, lowCubesPlaced int, vaultCubesPlaced int, climbTime int, climbSuccess int, robotNotes varchar)");
+            myDB.execSQL("CREATE TABLE IF NOT EXISTS PowerUp ( _id INTEGER PRIMARY KEY AUTOINCREMENT,/*scoutName varchar, teamColor int,*/ teamNumber int, matchNumber int, robotPosition int, baseLineCrossed int, autoHighCubePlaced int, autoLowCubePlaced int, highCubesPlaced int, lowCubesPlaced int, vaultCubesPlaced int, climbTime int, climbSuccess int, robotNotes varchar)");
             if (myDB != null)
                 myDB.close();
         }catch (SQLException e) {

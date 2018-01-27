@@ -49,9 +49,9 @@ public class ScouterInfo extends AppCompatActivity {
                         Intent autoIntent = new Intent(getApplicationContext(), ScoutingMenu.class);
                         autoIntent.putExtra("scoutName", scoutNameEditText.getText().toString()/*Tells the app to take the scouts name and save it*/);
                         if (redCheckBox.isChecked()) {
-                            autoIntent.putExtra("allianceColor", "0");
+                            autoIntent.putExtra("teamColor", "0");
                         } else {
-                            autoIntent.putExtra("allianceColor", "1");
+                            autoIntent.putExtra("teamColor", "1");
                         }
                         startActivity(autoIntent);
                     }else {

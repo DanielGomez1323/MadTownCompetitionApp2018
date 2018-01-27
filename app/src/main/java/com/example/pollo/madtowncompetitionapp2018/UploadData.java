@@ -48,22 +48,22 @@ public class UploadData extends AppCompatActivity {
     DataListAdapter listAdapter;
 
     public class Match {
-        String scoutName;
-        String teamColor;
+        //String scoutName;
+        //String teamColor;
 
         String teamNumber;
         String matchNumber;
 
-        String robotPosition;
-        String baseLineCrossed;
-        String autoHighCubePlaced;
-        String autoLowCubePlaced;
-        String highCubesPlaced;
-        String lowCubesPlaced;
-        String vaultCubesPlaced;
-        String climbTime;
+        String position;
+        String autoBaseline;
+        String autoHigh;
+        String autoLow;
+        String high;
+        String low;
+        String fuel;
+        String climb;
         String climbSuccess;
-        String robotNotes;
+        String tbh;
 
         public void loadDatabase(int id) {
             myDB = openOrCreateDatabase("FRC", MODE_PRIVATE, null);
@@ -71,19 +71,19 @@ public class UploadData extends AppCompatActivity {
             c.moveToFirst();
             if (c.getCount() > 0) {
                 //scoutName = c.getString(c.getColumnIndex("scoutName"));
-                teamColor = c.getString(c.getColumnIndex("teamColor"));
+                //teamColor = c.getString(c.getColumnIndex("teamColor"));
                 teamNumber = c.getString(c.getColumnIndex("teamNumber"));
                 matchNumber = c.getString(c.getColumnIndex("matchNumber"));
-                robotPosition = c.getString(c.getColumnIndex("robotPosition"));
-                baseLineCrossed = c.getString(c.getColumnIndex("baseLineCrossed"));
-                autoHighCubePlaced = c.getString(c.getColumnIndex("autoHighCubePlaced"));
-                autoLowCubePlaced = c.getString(c.getColumnIndex("autoLowCubePlaced"));
-                highCubesPlaced = c.getString(c.getColumnIndex("highCubesPlaced"));
-                lowCubesPlaced = c.getString(c.getColumnIndex("lowCubesPlaced"));
-                vaultCubesPlaced = c.getString(c.getColumnIndex("vaultCubesPlaced"));
-                climbTime = c.getString(c.getColumnIndex("climbTime"));
+                position = c.getString(c.getColumnIndex("robotPosition"));
+                autoBaseline = c.getString(c.getColumnIndex("baseLineCrossed"));
+                autoHigh = c.getString(c.getColumnIndex("autoHighCubePlaced"));
+                autoLow = c.getString(c.getColumnIndex("autoLowCubePlaced"));
+                high = c.getString(c.getColumnIndex("highCubesPlaced"));
+                low = c.getString(c.getColumnIndex("lowCubesPlaced"));
+                fuel = c.getString(c.getColumnIndex("vaultCubesPlaced"));
+                climb = c.getString(c.getColumnIndex("climbTime"));
                 climbSuccess = c.getString(c.getColumnIndex("climbSuccess"));
-                robotNotes = c.getString(c.getColumnIndex("scoutName" + "robotNotes"));
+                tbh = c.getString(c.getColumnIndex(/*"scoutName" + */"robotNotes"));
                 Toast.makeText(getApplicationContext(), "Team " + teamNumber + ", Match " + matchNumber + " selected", Toast.LENGTH_SHORT).show();
             }
         }
@@ -102,20 +102,20 @@ public class UploadData extends AppCompatActivity {
             try {
                 JSONObject object = new JSONObject();
                 //object.put("scoutName", data.scoutName);
-                object.put("teamColor", data.teamColor);
+                //object.put("teamColor", data.teamColor);
                 object.put("teamNumber", data.teamNumber);
                 object.put("matchNumber", data.matchNumber);
-                object.put("robotPosition", data.robotPosition);
-                object.put("baseLineCrossed", data.baseLineCrossed);
-                object.put("autoHighCubePlaced", data.autoHighCubePlaced);
-                object.put("autoLowCubePlaced", data.autoLowCubePlaced);
-                object.put("highCubesPlaced", data.highCubesPlaced);
-                object.put("lowCubesPlaced", data.lowCubesPlaced);
-                object.put("vaultCubesPlaced", data.vaultCubesPlaced);
-                object.put("climbTime", data.climbTime);
+                object.put("position", data.position);
+                object.put("autoBaseline", data.autoBaseline);
+                object.put("autoHigh", data.autoHigh);
+                object.put("autoLow", data.autoLow);
+                object.put("high", data.high);
+                object.put("low", data.low);
+                object.put("fuel", data.fuel);
+                object.put("climb", data.climb);
                 object.put("climbSuccess", data.climbSuccess);
-                object.put("robotNotes", data.robotNotes + data.scoutName);
-                return object.toString();
+                object.put("tbh", data.tbh /*+ data.scoutName*/);
+                return "["+object.toString()+"]";
             } catch (Exception e) {
                 System.out.print(e);
             }
@@ -205,7 +205,7 @@ public class UploadData extends AppCompatActivity {
             @Override
             public boolean onLongClick(View v) {
                 myDB = openOrCreateDatabase("FRC", MODE_PRIVATE, null);
-                myDB.execSQL("DELETE FROM SteamWorks WHERE _id = " + _id);
+                myDB.execSQL("DELETE FROM PowerUp WHERE _id = " + _id);
                 updateList();
                 return true;
             }

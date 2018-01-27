@@ -31,7 +31,8 @@
         <activity android:name=".DataListAdapter" />
         <activity android:name=".EditData" />
         <activity android:name=".TeamRoster" />
-        <activity android:name=".TeamListAdapter"></activity>
+        <activity android:name=".TeamListAdapter" />
+        <activity android:name=".AddPhoto"></activity>
     </application>
 
 </manifest>

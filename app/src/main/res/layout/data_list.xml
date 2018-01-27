@@ -89,7 +89,7 @@
         android:layout_height="wrap_content"
         android:text="Vault Cubes Placed: "
         android:textAppearance="?android:textAppearanceMedium"
-        android:id="@+id/vaultCubesTextVIew"
+        android:id="@+id/vaultCubesTextView"
         android:layout_below="@+id/lowCubesTextView"
         android:layout_marginTop="5dp" />
 
@@ -99,7 +99,7 @@
         android:text="Climb Time: "
         android:textAppearance="?android:textAppearanceMedium"
         android:id="@+id/robotClimbTextView"
-        android:layout_below="@+id/vaultCubesTextVIew"
+        android:layout_below="@+id/vaultCubesTextView"
         android:layout_marginTop="5dp" />
 
     <TextView
