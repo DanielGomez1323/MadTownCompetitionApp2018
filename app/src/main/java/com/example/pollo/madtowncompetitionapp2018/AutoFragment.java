@@ -94,9 +94,9 @@ public class AutoFragment extends Fragment {
             b.putString("robotPosition", "3");
         }
         if (baselineCrossedCheckBox.isChecked()){
-            b.putString("baseLineCrossed", "0");
-        }else{
             b.putString("baseLineCrossed", "1");
+        }else{
+            b.putString("baseLineCrossed", "0");
         }
         if (highCubeCheckBox.isChecked()){
             b.putString("autoHighCubePlaced", "1");

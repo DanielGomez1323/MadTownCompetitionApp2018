@@ -75,10 +75,10 @@ public class DataListAdapter extends CursorAdapter{
         String baseLineCrossed = cursor.getString(cursor.getColumnIndex("baseLineCrossed"));
         switch (cursor.getString(cursor.getColumnIndex("baseLineCrossed"))){
             case "0":
-                baseLineCrossed = "Baseline Crossed";
+                baseLineCrossed = "Baseline Not Crossed";
                 break;
             case "1":
-                baseLineCrossed = "Baseline Not Crossed";
+                baseLineCrossed = "Baseline Crossed";
                 break;
             default:
                 break;
