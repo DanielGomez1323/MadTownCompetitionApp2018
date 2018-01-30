@@ -126,7 +126,7 @@ public class AppMenu extends AppCompatActivity {
     public void createMatchDatabase(){
         try{
             myDB = openOrCreateDatabase("FRC", MODE_PRIVATE, null);
-            myDB.execSQL("CREATE TABLE IF NOT EXISTS MatchSchedule (_id INTEGER PRIMARY KEY AUTOINCREMENT, matchNumber int, teamNumber int, teamColor int)");
+            myDB.execSQL("CREATE TABLE IF NOT EXISTS MatchSchedule (_id INTEGER PRIMARY KEY AUTOINCREMENT, matchNumber int, teamNumber int)");
             if (myDB != null)
                 myDB.close();
         }   catch (SQLException e) {
