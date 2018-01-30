@@ -32,6 +32,7 @@ public class AppMenu extends AppCompatActivity {
     Button addPhotoButton;
     Button viewPhotoButton;
     Button importScheduleButton;
+    Button threevthreeButton;
     SQLiteDatabase myDB = null;
 
     @Override
@@ -46,6 +47,7 @@ public class AppMenu extends AppCompatActivity {
         addPhotoButton = findViewById(R.id.addPhotoButton);
         viewPhotoButton = findViewById(R.id.viewPhotoButton);
         importScheduleButton = findViewById(R.id.importScheduleButton);
+        threevthreeButton = findViewById(R.id.threevthreeButton);
 
         createPicturesDatabase();
         createDatabase();

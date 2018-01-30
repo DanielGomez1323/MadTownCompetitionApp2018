@@ -81,4 +81,14 @@
             android:layout_below="@+id/viewPhotoButton"
             android:layout_alignParentStart="true" />
 
+        <Button
+            android:layout_width="95dp"
+            android:layout_height="50dp"
+            android:text="3v3"
+            android:textSize="10sp"
+            android:id="@+id/threevthreeButton"
+            android:layout_below="@+id/importScheduleButton"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="5dp" />
+
 </RelativeLayout>

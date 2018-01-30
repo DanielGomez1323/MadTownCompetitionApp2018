@@ -12,8 +12,8 @@
     <EditText
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:id="@+id/searchEditText"
         android:hint="Ex. 1323"
+        android:id="@+id/searchEditText"
         android:layout_toStartOf="@+id/searchButton"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"/>
@@ -41,9 +41,9 @@
     <Button
         android:layout_width="110dp"
         android:layout_height="50dp"
-        android:id="@+id/uploadButton"
         android:text="Upload"
         android:textSize="10sp"
+        android:id="@+id/uploadButton"
         android:drawableStart="@android:drawable/ic_menu_upload"
         android:layout_below="@+id/scoutButton"
         android:layout_alignParentStart="true"
@@ -52,9 +52,9 @@
     <Button
         android:layout_width="110dp"
         android:layout_height="50dp"
-        android:id="@+id/teamsButton"
         android:text="Teams"
         android:textSize="10sp"
+        android:id="@+id/teamsButton"
         android:layout_below="@+id/uploadButton"
         android:layout_alignParentStart="true"
         android:layout_marginTop="5dp" />
@@ -62,9 +62,9 @@
     <Button
         android:layout_width="110dp"
         android:layout_height="50dp"
-        android:id="@+id/addPhotoButton"
         android:text="Add Photo"
         android:textSize="10sp"
+        android:id="@+id/addPhotoButton"
         android:drawableStart="@android:drawable/ic_menu_camera"
         android:layout_below="@+id/teamsButton"
         android:layout_alignParentStart="true"
@@ -73,9 +73,9 @@
     <Button
         android:layout_width="110dp"
         android:layout_height="50dp"
-        android:id="@+id/viewPhotoButton"
         android:text="View Photos"
         android:textSize="10sp"
+        android:id="@+id/viewPhotoButton"
         android:drawableStart="@android:drawable/ic_menu_gallery"
         android:layout_below="@+id/addPhotoButton"
         android:layout_alignParentStart="true"
@@ -84,11 +84,21 @@
     <Button
         android:layout_width="110dp"
         android:layout_height="50dp"
-        android:id="@+id/importScheduleButton"
         android:text="Import Schedule"
         android:textSize="10sp"
+        android:id="@+id/importScheduleButton"
         android:drawableStart="@android:drawable/ic_menu_save"
         android:layout_below="@+id/viewPhotoButton"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp" />
+
+    <Button
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:text="3v3"
+        android:textSize="10sp"
+        android:id="@+id/threevthreeButton"
+        android:layout_below="@+id/importScheduleButton"
         android:layout_alignParentStart="true"
         android:layout_marginTop="5dp" />
 
