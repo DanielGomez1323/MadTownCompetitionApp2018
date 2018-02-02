@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -32,6 +33,7 @@ public class AppMenu extends AppCompatActivity {
     Button addPhotoButton;
     Button viewPhotoButton;
     Button importScheduleButton;
+    Button importDataButton;
     Button threevthreeButton;
     SQLiteDatabase myDB = null;
 
@@ -47,6 +49,7 @@ public class AppMenu extends AppCompatActivity {
         addPhotoButton = findViewById(R.id.addPhotoButton);
         viewPhotoButton = findViewById(R.id.viewPhotoButton);
         importScheduleButton = findViewById(R.id.importScheduleButton);
+        importDataButton = findViewById(R.id.importDataButton);
         threevthreeButton = findViewById(R.id.threevthreeButton);
 
         createPicturesDatabase();
@@ -104,6 +107,12 @@ public class AppMenu extends AppCompatActivity {
                 pullSchedule();
             }
         });
+        importDataButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pullData();
+            }
+        });
     }
     public void createDatabase(){
         try {
@@ -128,7 +137,7 @@ public class AppMenu extends AppCompatActivity {
     public void createMatchDatabase(){
         try{
             myDB = openOrCreateDatabase("FRC", MODE_PRIVATE, null);
-            myDB.execSQL("CREATE TABLE IF NOT EXISTS MatchSchedule (_id INTEGER PRIMARY KEY AUTOINCREMENT, matchNumber int, teamNumber int)");
+            myDB.execSQL("CREATE TABLE IF NOT EXISTS MatchSchedule (_id INTEGER PRIMARY KEY AUTOINCREMENT, matchNumber int, redTeamNumber int, blueTeamNumber int)");
             if (myDB != null)
                 myDB.close();
         }   catch (SQLException e) {
@@ -136,26 +145,25 @@ public class AppMenu extends AppCompatActivity {
         }
     }
     public void pullSchedule(){
-        String url = "http://gorohi.com/1323/api/matchSchedule.php?compLevel=qm";
-        JsonObjectRequest jsObjRequest = new JsonObjectRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+        String url = "http://scout.team1323.com/api/v2018/fetchSchedule.php";
+        JsonArrayRequest jsArRequest = new JsonArrayRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onResponse(JSONArray matches) {
                         try {
-                            JSONArray matches = response.getJSONArray("matches");
                             for (int i = 0; i < matches.length(); i++) {
                                 JSONObject m = matches.getJSONObject(i);
                                 int matchNumber = m.getInt("matchNumber");
-                                JSONArray teams = m.getJSONArray("teams");
-                                for (int j = 0; j < teams.length(); j++) {
-                                    JSONObject t = teams.getJSONObject(j);
-                                    int teamNumber = t.getInt("teamNumber");
+                                JSONArray red = m.getJSONArray("red");
+                                for (int j = 0; j < red.length(); j++) {
+                                    int redTeamNumber = red.getInt(j);
+
 
 
                                     ContentValues c = new ContentValues();
                                     c.put("matchNumber", matchNumber);
-                                    c.put("teamNumber", teamNumber);
+                                    c.put("redTeamNumber", redTeamNumber);
                                     myDB = openOrCreateDatabase("FRC", MODE_PRIVATE, null);
                                     try {
                                         myDB.insertOrThrow("MatchSchedule", null, c);
@@ -169,6 +177,65 @@ public class AppMenu extends AppCompatActivity {
 
                             }
                         } catch (final JSONException e) {
+                            Log.d("ERROR", e.toString());
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO Auto-generated method stub
+                        error.printStackTrace();
+                    }
+                });
+        Volley.newRequestQueue(this).add(jsArRequest);
+    }
+    public void pullData(){
+        String url = "http://scout.team1323.com/api/v2018/fetchData.php";
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONArray match = response.getJSONArray("match");
+                            for (int i = 0; i < match.length(); i++) {
+                                JSONObject m = match.getJSONObject(i);
+                                int teamNumber = m.getInt("teamNumber");
+                                int matchNumber = m.getInt("matchNumber");
+                                int robotPosition = m.getInt("robotPosition");
+                                int baseLineCrossed = m.getInt("baseLineCrossed");
+                                int autoHighCubePlaced = m.getInt("autoHighCubePlaced");
+                                int autoLowCubePlaced = m.getInt("autoLowCubePlaced");
+                                int highCubesPlaced = m.getInt("highCubesPlaced");
+                                int lowCubesPlaced = m.getInt("lowCubesPlaced");
+                                int vaultCubesPlaced = m.getInt("vaultCubesPlaced");
+                                int climbTime = m.getInt("climbTime");
+                                int climbSuccess = m.getInt("climbSuccess");
+
+                                ContentValues c = new ContentValues();
+                                c.put("teamNumber", teamNumber);
+                                c.put("matchNumber", matchNumber);
+                                c.put("robotPosition", robotPosition);
+                                c.put("baseLineCrossed", baseLineCrossed);
+                                c.put("autoHighCubePlaced", autoHighCubePlaced);
+                                c.put("autoLowCubePlaced", autoLowCubePlaced);
+                                c.put("highCubesPlaced", highCubesPlaced);
+                                c.put("lowCubesPlaced", lowCubesPlaced);
+                                c.put("vaultCubesPlaced", vaultCubesPlaced);
+                                c.put("climbTime", climbTime);
+                                c.put("climbSuccess", climbSuccess);
+                                myDB = openOrCreateDatabase("FRC", MODE_PRIVATE, null);
+                                try {
+                                    myDB.insertOrThrow("PowerUp", null, c);
+                                }catch (SQLException s){
+                                        Toast.makeText(getApplication(), "Ooh, you almost had it.", Toast.LENGTH_SHORT).show();
+                                    }
+                                    if (myDB != null){
+                                        myDB.close();
+                                }
+                            }
+                        }catch (final JSONException e) {
                             Log.d("ERROR", e.toString());
                         }
                     }

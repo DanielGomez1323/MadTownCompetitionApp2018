@@ -74,12 +74,24 @@
         <Button
             android:layout_width="95dp"
             android:layout_height="50dp"
-            android:id="@+id/importScheduleButton"
             android:text="Import Schedule"
             android:textSize="10sp"
+            android:id="@+id/importScheduleButton"
             android:drawableStart="@android:drawable/ic_menu_save"
-            android:layout_below="@+id/viewPhotoButton"
-            android:layout_alignParentStart="true" />
+            android:layout_below="@+id/searchEditText"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp" />
+
+        <Button
+            android:layout_width="95dp"
+            android:layout_height="50dp"
+            android:text="Import Data"
+            android:textSize="10sp"
+            android:id="@+id/importDataButton"
+            android:drawableStart="@android:drawable/ic_menu_my_calendar"
+            android:layout_below="@+id/importScheduleButton"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp" />
 
         <Button
             android:layout_width="95dp"
@@ -87,8 +99,8 @@
             android:text="3v3"
             android:textSize="10sp"
             android:id="@+id/threevthreeButton"
-            android:layout_below="@+id/importScheduleButton"
-            android:layout_alignParentStart="true"
+            android:layout_below="@+id/importDataButton"
+            android:layout_centerInParent="true"
             android:layout_marginTop="5dp" />
 
 </RelativeLayout>

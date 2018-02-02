@@ -48,8 +48,8 @@ public class ScoutingMenu extends AppCompatActivity {
         if (c.getCount()> 0) {
             c.moveToFirst();
             for(int i = 0 ; i < 3 ; i++) {
-                String teamNumber = c.getString(c.getColumnIndex("teamNumber"));
-                teamNumbers[i] = teamNumber;
+                String redTeamNumber = c.getString(c.getColumnIndex("redTeamNumber"));
+                teamNumbers[i] = redTeamNumber;
                 c.moveToNext();
             }
         }else {
