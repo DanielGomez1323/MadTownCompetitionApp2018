@@ -156,22 +156,26 @@ public class AppMenu extends AppCompatActivity {
                                 JSONObject m = matches.getJSONObject(i);
                                 int matchNumber = m.getInt("matchNumber");
                                 JSONArray red = m.getJSONArray("red");
+                                JSONArray blue = m.getJSONArray("blue");
                                 for (int j = 0; j < red.length(); j++) {
                                     int redTeamNumber = red.getInt(j);
+                                    for (int k = 0; k < blue.length(); k++) {
+                                        int blueTeamNumber = blue.getInt(k);
 
 
-
-                                    ContentValues c = new ContentValues();
-                                    c.put("matchNumber", matchNumber);
-                                    c.put("redTeamNumber", redTeamNumber);
-                                    myDB = openOrCreateDatabase("FRC", MODE_PRIVATE, null);
-                                    try {
-                                        myDB.insertOrThrow("MatchSchedule", null, c);
-                                    }catch (SQLException s){
-                                        Toast.makeText(getApplication(), "Error saving", Toast.LENGTH_SHORT).show();
-                                    }
-                                    if (myDB != null){
-                                        myDB.close();
+                                        ContentValues c = new ContentValues();
+                                        c.put("matchNumber", matchNumber);
+                                        c.put("redTeamNumber", redTeamNumber);
+                                        c.put("blueTeamNumber", blueTeamNumber);
+                                        myDB = openOrCreateDatabase("FRC", MODE_PRIVATE, null);
+                                        try {
+                                            myDB.insertOrThrow("MatchSchedule", null, c);
+                                        } catch (SQLException s) {
+                                            Toast.makeText(getApplication(), "Error saving", Toast.LENGTH_SHORT).show();
+                                        }
+                                        if (myDB != null) {
+                                            myDB.close();
+                                        }
                                     }
                                 }
 
