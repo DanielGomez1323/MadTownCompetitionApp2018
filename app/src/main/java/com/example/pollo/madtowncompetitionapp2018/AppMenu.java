@@ -196,26 +196,25 @@ public class AppMenu extends AppCompatActivity {
     }
     public void pullData(){
         String url = "http://scout.team1323.com/api/v2018/fetchData.php";
-        JsonObjectRequest jsObjRequest = new JsonObjectRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+        JsonArrayRequest jsArRequest = new JsonArrayRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onResponse(JSONArray match) {
                         try {
-                            JSONArray match = response.getJSONArray("match");
                             for (int i = 0; i < match.length(); i++) {
                                 JSONObject m = match.getJSONObject(i);
                                 int teamNumber = m.getInt("teamNumber");
                                 int matchNumber = m.getInt("matchNumber");
-                                int robotPosition = m.getInt("robotPosition");
-                                int baseLineCrossed = m.getInt("baseLineCrossed");
-                                int autoHighCubePlaced = m.getInt("autoHighCubePlaced");
-                                int autoLowCubePlaced = m.getInt("autoLowCubePlaced");
-                                int highCubesPlaced = m.getInt("highCubesPlaced");
-                                int lowCubesPlaced = m.getInt("lowCubesPlaced");
-                                int vaultCubesPlaced = m.getInt("vaultCubesPlaced");
-                                int climbTime = m.getInt("climbTime");
-                                int climbSuccess = m.getInt("climbSuccess");
+                                int robotPosition = m.getInt("position");
+                                int baseLineCrossed = m.getInt("autoBaseline");
+                                int autoHighCubePlaced = m.getInt("autoHigh");
+                                int autoLowCubePlaced = m.getInt("autoLow");
+                                int highCubesPlaced = m.getInt("high");
+                                int lowCubesPlaced = m.getInt("low");
+                                int vaultCubesPlaced = m.getInt("fuel");
+                                int climbTime = m.getInt("climb");
+
 
                                 ContentValues c = new ContentValues();
                                 c.put("teamNumber", teamNumber);
@@ -228,12 +227,12 @@ public class AppMenu extends AppCompatActivity {
                                 c.put("lowCubesPlaced", lowCubesPlaced);
                                 c.put("vaultCubesPlaced", vaultCubesPlaced);
                                 c.put("climbTime", climbTime);
-                                c.put("climbSuccess", climbSuccess);
                                 myDB = openOrCreateDatabase("FRC", MODE_PRIVATE, null);
                                 try {
                                     myDB.insertOrThrow("PowerUp", null, c);
                                 }catch (SQLException s){
                                         Toast.makeText(getApplication(), "Ooh, you almost had it.", Toast.LENGTH_SHORT).show();
+                                        Log.d("ERROR", s.toString());
                                     }
                                     if (myDB != null){
                                         myDB.close();
@@ -251,6 +250,6 @@ public class AppMenu extends AppCompatActivity {
                         error.printStackTrace();
                     }
                 });
-        Volley.newRequestQueue(this).add(jsObjRequest);
+        Volley.newRequestQueue(this).add(jsArRequest);
     }
 }
