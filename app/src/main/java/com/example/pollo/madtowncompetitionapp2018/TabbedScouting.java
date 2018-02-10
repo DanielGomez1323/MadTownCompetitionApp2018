@@ -72,7 +72,7 @@ public class TabbedScouting extends AppCompatActivity {
                 ContentValues c = new ContentValues();
                 Intent i = getIntent();
                 //String scoutName = i.getStringExtra("scoutName");
-                //String teamColor = i.getStringExtra("teamColor");
+                String teamColor = i.getStringExtra("teamColor");
                 String teamNumber = i.getStringExtra("teamNumber");
                 String matchNumber = i.getStringExtra("matchNumber");
 
@@ -97,7 +97,7 @@ public class TabbedScouting extends AppCompatActivity {
                 String robotNotes = nb.getString("robotNotes");
 
                 //c.put("scoutName", scoutName);
-                //c.put("teamColor", teamColor);
+                c.put("teamColor", teamColor);
 
                 c.put("teamNumber", teamNumber);
                 c.put("matchNumber", matchNumber);

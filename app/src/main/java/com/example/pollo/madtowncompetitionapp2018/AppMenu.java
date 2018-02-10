@@ -17,7 +17,6 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -69,7 +68,7 @@ public class AppMenu extends AppCompatActivity {
         scoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent scoutIntent = new Intent(getApplicationContext(), ScouterInfo.class);
+                Intent scoutIntent = new Intent(getApplicationContext(), ScoutingMenu.class);
                 startActivity(scoutIntent);
             }
         });
@@ -117,7 +116,7 @@ public class AppMenu extends AppCompatActivity {
     public void createDatabase(){
         try {
             myDB = openOrCreateDatabase("FRC", MODE_PRIVATE, null);
-            myDB.execSQL("CREATE TABLE IF NOT EXISTS PowerUp ( _id INTEGER PRIMARY KEY AUTOINCREMENT,/*scoutName varchar, teamColor int,*/ teamNumber int, matchNumber int, robotPosition int, baseLineCrossed int, autoHighCubePlaced int, autoLowCubePlaced int, highCubesPlaced int, lowCubesPlaced int, vaultCubesPlaced int, climbTime int, climbSuccess int, robotNotes varchar)");
+            myDB.execSQL("CREATE TABLE IF NOT EXISTS PowerUp ( _id INTEGER PRIMARY KEY AUTOINCREMENT,/*scoutName varchar,*/ teamColor int, teamNumber int, matchNumber int, robotPosition int, baseLineCrossed int, autoHighCubePlaced int, autoLowCubePlaced int, highCubesPlaced int, lowCubesPlaced int, vaultCubesPlaced int, climbTime int, climbSuccess int, robotNotes varchar)");
             if (myDB != null)
                 myDB.close();
         }catch (SQLException e) {
@@ -214,6 +213,7 @@ public class AppMenu extends AppCompatActivity {
                                 int lowCubesPlaced = m.getInt("low");
                                 int vaultCubesPlaced = m.getInt("fuel");
                                 int climbTime = m.getInt("climb");
+                                String robotNotes = m.getString("tbh");
 
 
                                 ContentValues c = new ContentValues();
@@ -227,6 +227,7 @@ public class AppMenu extends AppCompatActivity {
                                 c.put("lowCubesPlaced", lowCubesPlaced);
                                 c.put("vaultCubesPlaced", vaultCubesPlaced);
                                 c.put("climbTime", climbTime);
+                                c.put("robotNotes", robotNotes);
                                 myDB = openOrCreateDatabase("FRC", MODE_PRIVATE, null);
                                 try {
                                     myDB.insertOrThrow("PowerUp", null, c);

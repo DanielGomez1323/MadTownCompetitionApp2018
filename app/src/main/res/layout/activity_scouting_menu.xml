@@ -5,7 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.pollo.madtowncompetitionapp2018.ScoutingMenu">
-    
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:text="Scout Name:"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textAlignment="center"
+        android:id="@+id/scoutNameTextView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/scoutNameEditText"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+    <requestFocus/>
     <TextView
         android:layout_width="150dp"
         android:layout_height="25dp"
@@ -13,9 +34,9 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textAlignment="center"
         android:id="@+id/teamNumberTextView"
+        android:layout_below="@id/scoutNameEditText"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="15dp" />
     
     <AutoCompleteTextView
         android:layout_width="150dp"
@@ -24,9 +45,8 @@
         android:ems="10"
         android:hint="Ex. 1323"
         android:id="@+id/teamNumberAutoEditText"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true" />
-    <requestFocus/>
+        android:layout_below="@id/scoutNameEditText"
+        android:layout_alignParentEnd="true" />
     
     <TextView
         android:layout_width="150dp"
@@ -35,9 +55,9 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textAlignment="center"
         android:id="@+id/matchNumberTextView"
+        android:layout_below="@+id/teamNumberAutoEditText"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="60dp" />
+        android:layout_marginTop="20dp" />
 
     <EditText
         android:layout_width="150dp"
@@ -46,9 +66,38 @@
         android:ems="10"
         android:hint="Ex. 12"
         android:id="@+id/matchNumberEditText"
+        android:layout_below="@id/teamNumberAutoEditText"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:text="Alliance Color:"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textAlignment="center"
+        android:id="@+id/allianceColorTextView"
+        android:layout_below="@+id/matchNumberEditText"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Blue"
+        android:id="@+id/blueCheckBox"
+        android:layout_below="@+id/allianceColorTextView"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="100dp"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Red"
+        android:id="@+id/redCheckBox"
+        android:layout_below="@+id/allianceColorTextView"
+        android:layout_alignTop="@+id/blueCheckBox"
+        android:layout_marginStart="230dp"/>
     
     <Button
         android:layout_width="wrap_content"

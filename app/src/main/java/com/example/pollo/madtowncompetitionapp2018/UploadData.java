@@ -49,7 +49,7 @@ public class UploadData extends AppCompatActivity {
 
     public class Match {
         //String scoutName;
-        //String teamColor;
+        String teamColor;
 
         String teamNumber;
         String matchNumber;
@@ -71,7 +71,7 @@ public class UploadData extends AppCompatActivity {
             c.moveToFirst();
             if (c.getCount() > 0) {
                 //scoutName = c.getString(c.getColumnIndex("scoutName"));
-                //teamColor = c.getString(c.getColumnIndex("teamColor"));
+                teamColor = c.getString(c.getColumnIndex("teamColor"));
                 teamNumber = c.getString(c.getColumnIndex("teamNumber"));
                 matchNumber = c.getString(c.getColumnIndex("matchNumber"));
                 position = c.getString(c.getColumnIndex("robotPosition"));
@@ -102,7 +102,7 @@ public class UploadData extends AppCompatActivity {
             try {
                 JSONObject object = new JSONObject();
                 //object.put("scoutName", data.scoutName);
-                //object.put("teamColor", data.teamColor);
+                object.put("teamColor", data.teamColor);
                 object.put("teamNumber", data.teamNumber);
                 object.put("matchNumber", data.matchNumber);
                 object.put("position", data.position);
@@ -312,7 +312,7 @@ public class UploadData extends AppCompatActivity {
             if(resultCode == Activity.RESULT_OK){
                 String match = data.getStringExtra("MATCH_NUMBER");
                 String teamN = data.getStringExtra("TEAM_NUMBER");
-                Toast.makeText(getApplicationContext(),"Team " + teamN + ", Match " + match + "updated.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Team " + teamN + ", Match " + match + " updated.", Toast.LENGTH_SHORT).show();
                 updateList();
             }
             if (resultCode == Activity.RESULT_CANCELED) {

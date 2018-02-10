@@ -46,14 +46,14 @@ public class ScouterInfo extends AppCompatActivity {
             public void onClick(View view) {
                 if (scoutNameEditText.getText().toString().length() > 0) {
                     if ((redCheckBox.isChecked() || blueCheckBox.isChecked()) && !(redCheckBox.isChecked() && blueCheckBox.isChecked())) {
-                        Intent autoIntent = new Intent(getApplicationContext(), ScoutingMenu.class);
-                        autoIntent.putExtra("scoutName", scoutNameEditText.getText().toString()/*Tells the app to take the scouts name and save it*/);
+                        Intent intent = new Intent(getApplicationContext(), ScoutingMenu.class);
+                        intent.putExtra("scoutName", scoutNameEditText.getText().toString()/*Tells the app to take the scouts name and save it*/);
                         if (redCheckBox.isChecked()) {
-                            autoIntent.putExtra("teamColor", "0");
+                            intent.putExtra("teamColor", "0");
                         } else {
-                            autoIntent.putExtra("teamColor", "1");
+                            intent.putExtra("teamColor", "1");
                         }
-                        startActivity(autoIntent);
+                        startActivity(intent);
                     }else {
                         Toast.makeText(getApplicationContext(), "Come on dude. Choose a color.", Toast.LENGTH_SHORT).show();
                     }

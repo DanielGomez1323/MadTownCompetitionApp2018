@@ -17,6 +17,7 @@ public class DataListAdapter extends CursorAdapter{
         mContext = context;
     }
     public void bindView(View view, Context context, Cursor cursor){
+        //TextView scoutTextView = view.findViewById(R.id.scoutTextView);
         TextView teamNumberTextView = view.findViewById(R.id.teamNumberTextView);
         TextView matchNumberTextView = view.findViewById(R.id.matchNumberTextView);
         TextView teamColorTextView = view.findViewById(R.id.teamColorTextView);
@@ -30,9 +31,10 @@ public class DataListAdapter extends CursorAdapter{
         TextView robotClimbTextView = view.findViewById(R.id.robotClimbTextView);
         TextView successTextView = view.findViewById(R.id.successTextView);
         TextView robotNotesTextView = view.findViewById(R.id.robotNotesTextView);
+        //scoutTextView.setText(scoutTextView.getText() + cursor.getString(cursor.getColumnIndex("scoutName")));
         teamNumberTextView.setText(teamNumberTextView.getText() + cursor.getString(cursor.getColumnIndex("teamNumber")));
         matchNumberTextView.setText(matchNumberTextView.getText() + cursor.getString(cursor.getColumnIndex("matchNumber")));
-        //teamColorTextView.setText(teamColorTextView.getText() + cursor.getString(cursor.getColumnIndex("teamColor")));
+        teamColorTextView.setText(teamColorTextView.getText() + cursor.getString(cursor.getColumnIndex("teamColor")));
         robotPositionTextView.setText(robotPositionTextView.getText() + cursor.getString(cursor.getColumnIndex("robotPosition")));
         baseLineCrossedTextView.setText(baseLineCrossedTextView.getText() + cursor.getString(cursor.getColumnIndex("baseLineCrossed")));
         autoHighTextView.setText(autoHighTextView.getText() + cursor.getString(cursor.getColumnIndex("autoHighCubePlaced")));
@@ -45,8 +47,8 @@ public class DataListAdapter extends CursorAdapter{
         robotNotesTextView.setText(robotNotesTextView.getText() + cursor.getString(cursor.getColumnIndex("robotNotes")));
         teamNumberTextView.setText("Team " + cursor.getString(cursor.getColumnIndex("teamNumber")));
         matchNumberTextView.setText("Match " + cursor.getString(cursor.getColumnIndex("matchNumber")));
-        //String color = cursor.getString(cursor.getColumnIndex("teamColor"));
-        /*switch(cursor.getString(cursor.getColumnIndex("teamColor"))){
+        String color = cursor.getString(cursor.getColumnIndex("teamColor"));
+        switch(cursor.getString(cursor.getColumnIndex("teamColor"))){
             case "1":
                 color = "Blue";
                 break;
@@ -55,7 +57,7 @@ public class DataListAdapter extends CursorAdapter{
                 break;
             default:
                 break;
-        }*/
+        }
         String robotPosition = cursor.getString(cursor.getColumnIndex("robotPosition"));
         switch(cursor.getString(cursor.getColumnIndex("robotPosition"))){
             case "0":
@@ -83,7 +85,7 @@ public class DataListAdapter extends CursorAdapter{
             default:
                 break;
         }
-        //teamColorTextView.setText(color);
+        teamColorTextView.setText(color);
         robotPositionTextView.setText(robotPosition);
         baseLineCrossedTextView.setText(baseLineCrossed);
         autoHighTextView.setText("Auto High Cube Placed: " + cursor.getString(cursor.getColumnIndex("autoHighCubePlaced")));
