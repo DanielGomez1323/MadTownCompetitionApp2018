@@ -32,8 +32,8 @@ public class ScoutingMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scouting_menu);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.select_dialog_item, teamNumbers);
         scoutNameEditText = findViewById(R.id.scoutNameEditText);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.select_dialog_item, teamNumbers);
         teamNumberAutoEditText = findViewById(R.id.teamNumberAutoEditText);
         teamNumberAutoEditText.setThreshold(1);//will start working from first character
         teamNumberAutoEditText.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
@@ -43,7 +43,7 @@ public class ScoutingMenu extends AppCompatActivity {
         startButton = findViewById(R.id.startButton);
 
         myDB = openOrCreateDatabase("FRC", MODE_PRIVATE, null);
-        c = myDB.rawQuery("SELECT * FROM PowerUp WHERE _id = "  + id, null);
+        c = myDB.rawQuery("SELECT * FROM PowerUp WHERE scoutName = "  + scoutNameEditText.getText(), null);
         c.moveToFirst();
         if (i > 0) {
             scoutNameEditText.setText(c.getString(c.getColumnIndex("scoutName")));
@@ -96,7 +96,7 @@ public class ScoutingMenu extends AppCompatActivity {
                         if(matchNumberEditText.getText().toString().length() > 0) {
                             if ((redCheckBox.isChecked() || blueCheckBox.isChecked()) && !(redCheckBox.isChecked() && blueCheckBox.isChecked())) {
                                 Intent autoIntent = new Intent(getApplicationContext(), TabbedScouting.class);
-                                //autoIntent.putExtra("scoutName", scoutNameEditText.getText().toString());
+                                autoIntent.putExtra("scoutName", scoutNameEditText.getText().toString());
                                 autoIntent.putExtra("teamNumber", teamNumberAutoEditText.getText().toString()/*teamNumberEditText.getText().toString()*/);
                                 autoIntent.putExtra("matchNumber", matchNumberEditText.getText().toString());
                                 if (redCheckBox.isChecked()) {

@@ -48,7 +48,7 @@ public class UploadData extends AppCompatActivity {
     DataListAdapter listAdapter;
 
     public class Match {
-        //String scoutName;
+        String scoutName;
         String teamColor;
 
         String teamNumber;
@@ -70,7 +70,7 @@ public class UploadData extends AppCompatActivity {
             Cursor c = myDB.rawQuery("SELECT * FROM PowerUp WHERE _id = " + String.valueOf(id), null);
             c.moveToFirst();
             if (c.getCount() > 0) {
-                //scoutName = c.getString(c.getColumnIndex("scoutName"));
+                scoutName = c.getString(c.getColumnIndex("scoutName"));
                 teamColor = c.getString(c.getColumnIndex("teamColor"));
                 teamNumber = c.getString(c.getColumnIndex("teamNumber"));
                 matchNumber = c.getString(c.getColumnIndex("matchNumber"));
@@ -101,7 +101,7 @@ public class UploadData extends AppCompatActivity {
         public static String toJSon(Match data) {
             try {
                 JSONObject object = new JSONObject();
-                //object.put("scoutName", data.scoutName);
+                object.put("scoutName", data.scoutName);
                 object.put("teamColor", data.teamColor);
                 object.put("teamNumber", data.teamNumber);
                 object.put("matchNumber", data.matchNumber);

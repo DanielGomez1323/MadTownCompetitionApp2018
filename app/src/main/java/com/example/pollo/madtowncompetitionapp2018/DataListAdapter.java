@@ -17,7 +17,7 @@ public class DataListAdapter extends CursorAdapter{
         mContext = context;
     }
     public void bindView(View view, Context context, Cursor cursor){
-        //TextView scoutTextView = view.findViewById(R.id.scoutTextView);
+        TextView scoutTextView = view.findViewById(R.id.scoutTextView);
         TextView teamNumberTextView = view.findViewById(R.id.teamNumberTextView);
         TextView matchNumberTextView = view.findViewById(R.id.matchNumberTextView);
         TextView teamColorTextView = view.findViewById(R.id.teamColorTextView);
@@ -31,7 +31,7 @@ public class DataListAdapter extends CursorAdapter{
         TextView robotClimbTextView = view.findViewById(R.id.robotClimbTextView);
         TextView successTextView = view.findViewById(R.id.successTextView);
         TextView robotNotesTextView = view.findViewById(R.id.robotNotesTextView);
-        //scoutTextView.setText(scoutTextView.getText() + cursor.getString(cursor.getColumnIndex("scoutName")));
+        scoutTextView.setText(scoutTextView.getText() + cursor.getString(cursor.getColumnIndex("scoutName")));
         teamNumberTextView.setText(teamNumberTextView.getText() + cursor.getString(cursor.getColumnIndex("teamNumber")));
         matchNumberTextView.setText(matchNumberTextView.getText() + cursor.getString(cursor.getColumnIndex("matchNumber")));
         teamColorTextView.setText(teamColorTextView.getText() + cursor.getString(cursor.getColumnIndex("teamColor")));
